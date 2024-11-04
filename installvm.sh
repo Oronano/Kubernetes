@@ -35,9 +35,9 @@ kubectl wait --for=condition=available --timeout=600s deployment/argocd-server -
 argocd login localhost:8080 --username admin --password $(kubectl get secret argocd-initial-admin-secret -n $ARGOCD_NAMESPACE -o jsonpath='{.data.password}' | base64 --decode)
 
 # Apply YAML files for Argo CD and the app
-kubectl apply -f app-argo-cd.yaml -n $DEV_NAMESPACE
-kubectl apply -f ingress-app.yaml -n $DEV_NAMESPACE
-kubectl apply -f ingress-argocd.yaml -n $ARGOCD_NAMESPACE
+kubectl apply -f app-argo.yaml -n $DEV_NAMESPACE
+kubectl apply -f ingress-agro.yaml -n $DEV_NAMESPACE
+kubectl apply -f ingress-argo.yaml -n $ARGOCD_NAMESPACE
 
 # Add ngrok repository and install
 sudo snap install ngrok
